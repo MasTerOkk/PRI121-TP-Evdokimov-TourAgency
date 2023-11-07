@@ -1,0 +1,58 @@
+﻿@model List<agency.Models.Order>
+ <h1>Здравствуйте @User.Identity.Name</h1>
+<form>
+    <p>
+        Клиент: <input type="text" name="searchString" id="searchString" method="get" />
+    </p>
+    <p>
+        Номер заказа: <input type="number" name="id" id="id" method="get" />
+    </p>
+    <input type="checkbox" value="true" name="sub" id="sub" method="get" />
+    <label class="form-check-label">Ожидающие подтверждения</label>
+</form>
+
+<div id="view" name="view">
+    @await Html.PartialAsync("Search", Model)
+</div>
+
+
+
+@section Scripts{
+    <script>
+        $('#searchString').on("keyup", function () {
+            $.ajax({
+                type: "POST",
+                url: "/Order/Search",
+                data: $('form').serialize(),
+                dataType: 'html',
+                success: function (result) {
+                    $("#view").html(result);
+                }
+            });
+        });
+        $('#id').on("keyup", function () {
+            $.ajax({
+                type: "POST",
+                url: "/Order/Search",
+                data: $('form').serialize(),
+                dataType: 'html',
+                success: function (result) {
+                    $("#view").html(result);
+                }
+            });
+        });
+
+        $('#sub').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Order/Search",
+                data: $('form').serialize(),
+                dataType: 'html',
+                success: function (result) {
+                    $("#view").html(result);
+                }
+            });
+        });
+    </script>
+}
+

@@ -1,0 +1,19 @@
+﻿@model Dictionary<string, int>;
+
+
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item"><a asp-action="Profile">Мой профиль</a></li>
+            <li class="nav-item"><a asp-action="MyOrders">Мои заказы</a></li>
+            <li class="nav-item"><a asp-action="Stat">Статистика</a></li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        @foreach (var i in Model)
+        {
+            <div>@i.Key: @i.Value</div>
+        }
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model IdentityUser
+
+<h1>Manage your account</h1>
+
+<div>
+    <h2>Change your account settings</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item"><a asp-action="Profile">Мой профиль</a></li>
+                <li class="nav-item"><a asp-action="MyOrders">Мои заказы</a></li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item"><a asp-action="Stat">Статистика</a></li>
+                }
+                
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <p>Имя пользователя @Model.UserName</p>
+            @if (@Model.EmailConfirmed)
+            {
+                <p>Почта подтверждена</p>
+            } else
+            {
+                <p>Почта не подтверждена</p>
+            }
+        </div>
+    </div>
+</div>
