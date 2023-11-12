@@ -35,6 +35,13 @@ namespace agency.Controllers
             {
                 var tour = await _context.Tour.FirstOrDefaultAsync(m => m.Id == basket.TourId);
                 sc.price += tour.Price * basket.PersonsCount;
+                if(tour.HotTour)
+                {
+                    sc.priceHotTour += (int)(tour.Price * basket.PersonsCount * 0.8);
+                } else
+                {
+                    sc.priceHotTour += tour.Price * basket.PersonsCount;
+                }
                 tourList.Add(tour);
             }
 

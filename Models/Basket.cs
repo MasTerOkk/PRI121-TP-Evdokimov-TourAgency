@@ -8,11 +8,11 @@ namespace agency.Models
     public class Basket
     {
         public int Id { get; set; }
-        [DefaultValue(0)]
         public int PersonsCount { get; set; }
         public int? TourId { get; set; }
-        public Tour? Tour {  get; set; }
         public string? UserId { get; set; }
+        // keys
+        public Tour? Tour {  get; set; }
         public IdentityUser? user {  get; set; }
 
     }

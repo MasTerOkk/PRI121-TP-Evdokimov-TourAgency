@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<TourAgency.Models.Tour>
 
+
 @foreach (var item in Model)
 {
+    int pr = 0;
     if (!item.Deleted)
     {
         <div class="card mb-3">
@@ -12,7 +14,16 @@
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
                     </div>
                     <div class="col-4 price-container d-flex justify-content-end flex-column align-items-end">
-                        <p class="price mb-0">@Html.DisplayFor(modelItem => item.Price)₽</p>
+                        @if(item.HotTour)
+                        {
+                            <h3 class="mb-0">Горячий тур!!</h3>
+                            <p class="price mb-0 text-decoration-line-through">@Html.DisplayFor(modelItem => item.Price)₽</p>
+                            pr = (int)(item.Price * 0.8);
+                            <p class="price mb-0">@pr</p>
+                        } else
+                        {
+                            <p class="price mb-0">@Html.DisplayFor(modelItem => item.Price)₽</p>
+                        }
                         <a asp-action="Add" asp-controller="ShopCart" asp-route-id="@item.Id" class="buy-btn">Оформить сейчас!</a>@**@
                     </div>
                 </div>
