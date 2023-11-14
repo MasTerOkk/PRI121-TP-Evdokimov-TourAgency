@@ -12,21 +12,21 @@
             @if(i.Tour.HotTour)
             {
                 pr = (int)(i.Tour.Price * 0.8);
-                <p>@pr</p>
+                <p>Цена за 1: @pr</p>
             } else
             {
                 <p>@i.Tour.Price₽</p>
             }
+            @if (i.Tour.HotTour)
+            {
+                prPerson = (int)(i.Tour.Price * 0.8) * i.PersonsCount;
+                <h4>Итого: @prPerson</h4>
+            } else
+            {
+                prPerson = i.Tour.Price * i.PersonsCount;
+                <h4>Итого: @prPerson</h4>
+            }
         </div>
-        @if (i.Tour.HotTour)
-        {
-            prPerson = (int)(i.Tour.Price * 0.8) * i.PersonsCount;
-            <h4>Итого: @prPerson</h4>
-        } else
-        {
-            prPerson = i.Tour.Price * i.PersonsCount;
-            <h4>Итого: @prPerson</h4>
-        }
     </div>
     
 }
