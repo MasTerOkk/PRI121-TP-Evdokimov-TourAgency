@@ -14,10 +14,6 @@ namespace agency.Models
         public string? PaymentStatus { get; set; }
         public int Price { get; set; }
 
-        //Для оплаты
-        public string? cartNum { get; set; }
-        public string? cvv { get; set; }
-
         // keys
         public IdentityUser? user { get; set; }
         public List<OrderedTour>? OrderedTours { get; set; }

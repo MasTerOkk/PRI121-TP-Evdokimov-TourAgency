@@ -3,17 +3,14 @@
 <form asp-action="PaymentCard" method="post">
     <div class="form-group">
         <label class="control-label">Введите номер карты:</label>
-        <input asp-for="cartNum" type="number" maxlength="16" class="form-control" />
+        <input name="cartNum" type="number" maxlength="16" class="form-control" />
         <p style="color: red;">@ViewBag.card</p>
-
-        <span asp-validation-for="cartNum" class="text-danger"></span>
     </div>
     <div class="form-group">
         
         <label class="control-label">Введите cvv номер:</label>
-        <input asp-for="cvv" type="number" class="form-control" />
+        <input name="cvv" type="number" class="form-control" />
         <p style="color: red;">@ViewBag.cvv</p>
-        <span asp-validation-for="cvv" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="hidden" asp-for="Id" class="form-control" />

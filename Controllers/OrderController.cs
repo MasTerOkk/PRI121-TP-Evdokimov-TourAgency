@@ -180,8 +180,6 @@ namespace agency.Controllers
             if (Order != null)
             {
                 Order.PaymentStatus = "Оплачен";
-                Order.cvv = cvv;
-                Order.cartNum = cartNum;
                 _context.Orders.Update(Order);
             }
 
